@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 // app.use(cors(corsOptions));
 
 // PORT
-const PORT = 4000;
+const PORT = 8000;
 
 app.get("/", (req, res) => {
   res.json({ message: "API Working" });
