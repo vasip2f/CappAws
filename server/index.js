@@ -4,6 +4,7 @@ const cors = require("cors");
 app.use(cors());
 
 const path =require('path')
+
 // const corsOptions = { 
 //   origin: "https://conference-room-booking-fe.onrender.com", // frontend URI (ReactJS)
 // }
@@ -23,7 +24,7 @@ const builPath =path.join(_dirname , "../client/build");
 app.use(express.static(path.join(builPath)));
 app.get("/*", function(req,res) {
   res.sendFile('index.html',
-  {root:path.join(_dirname, "../client/build/index.html")},
+  {root:path.join(_dirname, "../client/build")},
     function (err) {
       if (err) {
         res.status(500).send(err)
