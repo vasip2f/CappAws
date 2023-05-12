@@ -19,10 +19,11 @@ app.use('/',EventTimeSlotRoute)
 
 const _dirname = path.dirname("")
 const builPath =path.join(_dirname , "../client/build");
-app.use(express.static(builPath))
+// app.use(express.static(builPath))
+app.use(express.static(path.join(builPath)));
 app.get("/*", function(req,res) {
-  res.sendFile(
-    path.join(_dirname, "../client/build/index.html"),
+  res.sendFile('index.html',
+  {root:path.join(_dirname, "../client/build/index.html")},
     function (err) {
       if (err) {
         res.status(500).send(err)
