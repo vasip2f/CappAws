@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
-const path =require('path')
+const path = require('path')
 
 // const corsOptions = { 
 //   origin: "https://conference-room-booking-fe.onrender.com", // frontend URI (ReactJS)
@@ -14,17 +14,17 @@ const user = require("./router/user");
 InitiateMongoServer();
 app.use(express.json());
 const EventRoute = require('./router/EventRoutes');
-app.use('/',  EventRoute);
+app.use('/', EventRoute);
 const EventTimeSlotRoute = require('./router/EventTimeSlotRoute');
-app.use('/',EventTimeSlotRoute)
+app.use('/', EventTimeSlotRoute)
 
 const _dirname = path.dirname("")
-const builPath =path.join(_dirname , "../client/build");
+const builPath = path.join(_dirname, "../client/build");
 // app.use(express.static(builPath))
 app.use(express.static(path.join(builPath)));
-app.get("/*", function(req,res) {
+app.get("/*", function (req, res) {
   res.sendFile('index.html',
-  {root:path.join(_dirname, "../client/build")},
+    { root: path.join(_dirname, "../client/build") }, 
     function (err) {
       if (err) {
         res.status(500).send(err)
@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
 
 // router
 
-app.use("/user", user);
+app.use("/", user);
 
 app.listen(PORT, (req, res) => {
   console.log(`Server Started at PORT ${PORT}`);

@@ -22,7 +22,7 @@ function Register() {
       password: password,
     };
     axios
-      .post("http://localhost:4000/user/signup", data)
+      .post("http://localhost:4000/signup", data)
       .then((res) => {
         toast.success("Registration is Success 😊", {
           position: toast.POSITION.TOP_RIGHT,
